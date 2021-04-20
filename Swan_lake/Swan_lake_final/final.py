@@ -44,7 +44,7 @@ data = np.append(zer_left, data, axis = 1)
 data = np.append(data, zer_right, axis = 1)
 
 X = np.linspace(-1, 1, 150)
-G = 1.5 * np.exp(-4 * X ** 2)
+G = 1.5 * np.exp(-10 * X ** 2)
 
 # Create new Figure with black background
 fig = plt.figure(figsize=(9, 16), facecolor='black')
@@ -90,7 +90,7 @@ def update(*args):
 
     # Update data
     for i in range(len(data)):
-        lines[i].set_ydata((i+7) + G * data[i][y:y + 150] * 2)
+        lines[i].set_ydata((i+7) + G * data[i][y:y + 150] * 4)
 
     y += 1
 
