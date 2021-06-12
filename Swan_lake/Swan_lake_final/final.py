@@ -1,3 +1,14 @@
+################################################################################
+# final.py
+#
+# Author: JC_Marco 
+# 
+# Description:
+#
+# Separate instruments using a MIDI file, spectrogram of each instrument 
+# represented and add the full song
+################################################################################
+
 from audio2numpy import open_audio
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,7 +48,7 @@ data = np.array([]).reshape(0, 2491)
 for instrument in instruments:
     data = np.append(data, instrument2numpy(*instrument), axis = 0)
 
-# Include this so the part playing will be centered
+# Center the playing part 
 zer_left = np.zeros((30, 85))
 zer_right = np.zeros((30, 73))
 data = np.append(zer_left, data, axis = 1)
