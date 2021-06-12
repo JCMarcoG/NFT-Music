@@ -18,7 +18,7 @@ import moviepy.editor as mp
 def instrument2numpy(song, n):
 
     #Song to numpy
-    signal, sampling_rate = open_audio(song)
+    signal, sampling_rate = open_audio("mp3s/" + song)
 
     #Convert stereo to mono
     samples = signal.sum(axis=1) / 2
@@ -50,7 +50,7 @@ for instrument in instruments:
 
 # Center the playing part 
 zer_left = np.zeros((30, 85))
-zer_right = np.zeros((30, 73))
+zer_right = np.zeros((30, 70))
 data = np.append(zer_left, data, axis = 1)
 data = np.append(data, zer_right, axis = 1)
 
@@ -101,7 +101,7 @@ def update(*args):
 
     # Update data
     for i in range(len(data)):
-        lines[i].set_ydata((i+7) + G * data[i][y:y + 150] * 4)
+        lines[i].set_ydata((i+7) + G * data[i][y:y + 150] * 3)
 
     y += 1
 
